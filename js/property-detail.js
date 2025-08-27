@@ -25,8 +25,7 @@ function getImagePath(propertyId, imageName) {
         '3726-portland-ave': '3726 Portland Ave. Shreveport, LA 71103',
         '3730-portland-ave': '3730 Portland Ave. Shreveport, LA 71103',
         '525-sassafras-ave': '525 Sassafras Ave. Shreveport, LA 71106',
-        '529-sassafras-ave': '529 Sassafras Ave. Shreveport, LA 71106',
-        '823-bates-st': '823 Bates St. Shreveport, LA 71106'
+        '529-sassafras-ave': '529 Sassafras Ave. Shreveport, LA 71106'
     };
     return `assets/images/${encodeURIComponent(folderMap[propertyId])}/${imageName}`;
 }
@@ -41,8 +40,7 @@ function getThumbnailPath(propertyId, imageName) {
         '3726-portland-ave': '3726-portland-ave-shreveport-la-71103',
         '3730-portland-ave': '3730-portland-ave-shreveport-la-71103',
         '525-sassafras-ave': '525-sassafras-ave-shreveport-la-71106',
-        '529-sassafras-ave': '529-sassafras-ave-shreveport-la-71106',
-        '823-bates-st': '823-bates-st-shreveport-la-71106'
+        '529-sassafras-ave': '529-sassafras-ave-shreveport-la-71106'
     };
     // Thumbnails have the same name as source images, just with thumb- prefix
     return `assets/thumbnails/${folderMap[propertyId]}/thumb-${imageName}`;
@@ -68,9 +66,11 @@ function loadPropertyDetails() {
     
     // Status badge
     if (property.status) {
+        const badgeText = property.status === 'Rented' && property.monthlyRent ? 
+            `Rented | ${formatCurrency(property.monthlyRent)}/mo` : property.status;
         const statusClass = property.status === 'Rented' ? 'bg-success' : 'bg-warning text-dark';
         document.getElementById('statusBadge').innerHTML = 
-            `<span class="badge ${statusClass}">${property.status}</span>`;
+            `<span class="badge ${statusClass}">${badgeText}</span>`;
     }
     
     // Property features
@@ -82,12 +82,24 @@ function loadPropertyDetails() {
     // Financial details
     if (property.monthlyRent) {
         document.getElementById('monthlyRentInfo').innerHTML = 
-            `<p class="mb-2"><strong>Monthly Rent:</strong> ${formatCurrency(property.monthlyRent)}</p>`;
+            `<p class="mb-2"><strong>Current Rent:</strong> ${formatCurrency(property.monthlyRent)}</p>`;
     }
     
     if (property.marketRent) {
         document.getElementById('marketRentInfo').innerHTML = 
-            `<p class="mb-2"><strong>Market Rent:</strong> $${property.marketRent}</p>`;
+            `<p class="mb-2"><strong>Suggested Rent:</strong> $${property.marketRent}</p>`;
+        
+        // Add explanation for rented properties with long-term tenants
+        if (property.status === 'Rented' && property.rentalTime && property.monthlyRent && property.marketRent) {
+            const currentRent = property.monthlyRent;
+            const suggestedRent = parseInt(property.marketRent.toString().replace(/[^0-9]/g, ''));
+            if (currentRent < suggestedRent) {
+                document.getElementById('marketRentInfo').innerHTML += 
+                    `<div class="alert alert-info mb-0">
+                        <small><i class="fas fa-info-circle"></i> The current rent has been maintained below market rates as a benefit to our reliable, long-term tenant who has consistently paid on time and maintained the property well over their ${property.rentalTime} tenancy.</small>
+                    </div>`;
+            }
+        }
     }
     
     if (property.propertyTax) {
@@ -166,11 +178,6 @@ function loadPropertyDetails() {
         document.getElementById('propertyVideo').src = `assets/videos/${property.video}`;
     }
     
-    // Load PDF if available
-    if (property.pdf) {
-        document.getElementById('documentsSection').style.display = 'block';
-        document.getElementById('pdfLink').href = `assets/pdfs/${property.pdf}`;
-    }
 }
 
 // Initialize on page load

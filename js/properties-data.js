@@ -48,7 +48,7 @@ const properties = [
         propertyTax: 81.73,
         parishTax: 400.76,
         rentalTime: '',
-        notes: 'Needs considerable work',
+        notes: 'Renovation opportunity',
         images: [
             'front-exterior.jpg',
             'interior-bedroom-window.jpg',
@@ -119,7 +119,7 @@ const properties = [
         propertyTax: 43.74,
         parishTax: 214.46,
         rentalTime: '',
-        notes: 'Needs considerable work',
+        notes: 'Renovation opportunity',
         images: [
             'front-exterior.jpg',
             'living-room.jpg',
@@ -182,7 +182,7 @@ const properties = [
         propertyTax: 4.17,
         parishTax: 20.47,
         rentalTime: '',
-        notes: 'Needs considerable work',
+        notes: 'Renovation opportunity',
         images: [
             'street-view-exterior.jpg',
             'front-exterior.jpg',
@@ -259,32 +259,5 @@ const properties = [
         video: '529-sassafras-ave-walkthrough.mp4',
         pdf: '529-Sassafras-Ave-Shreveport-LA-71106.pdf',
         avm: null
-    },
-    {
-        id: '823-bates-st',
-        address: '823 Bates St',
-        city: 'Shreveport, LA 71106',
-        beds: 3,
-        baths: 1,
-        sqft: 1103,
-        ac: null,
-        status: null,
-        monthlyRent: null,
-        marketRent: null,
-        price: null,
-        propertyTax: null,
-        parishTax: null,
-        rentalTime: '',
-        notes: '',
-        images: [
-            'front-exterior.jpg',
-            'empty-room-wood-floors.jpg',
-            'kitchen.jpg',
-            'bathroom.jpg',
-            'living-room.jpg'
-        ],
-        video: null,
-        pdf: '823-Bates-St-Shreveport-LA-71106.pdf',
-        avm: 85000
     }
 ];

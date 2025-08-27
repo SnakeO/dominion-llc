@@ -19,8 +19,7 @@ function getImagePath(propertyId, imageName) {
         '3726-portland-ave': '3726 Portland Ave. Shreveport, LA 71103',
         '3730-portland-ave': '3730 Portland Ave. Shreveport, LA 71103',
         '525-sassafras-ave': '525 Sassafras Ave. Shreveport, LA 71106',
-        '529-sassafras-ave': '529 Sassafras Ave. Shreveport, LA 71106',
-        '823-bates-st': '823 Bates St. Shreveport, LA 71106'
+        '529-sassafras-ave': '529 Sassafras Ave. Shreveport, LA 71106'
     };
     return `assets/images/${encodeURIComponent(folderMap[propertyId])}/${imageName}`;
 }
@@ -35,8 +34,7 @@ function getThumbnailPath(propertyId, imageName) {
         '3726-portland-ave': '3726-portland-ave-shreveport-la-71103',
         '3730-portland-ave': '3730-portland-ave-shreveport-la-71103',
         '525-sassafras-ave': '525-sassafras-ave-shreveport-la-71106',
-        '529-sassafras-ave': '529-sassafras-ave-shreveport-la-71106',
-        '823-bates-st': '823-bates-st-shreveport-la-71106'
+        '529-sassafras-ave': '529-sassafras-ave-shreveport-la-71106'
     };
     // Thumbnails have the same name as source images, just with thumb- prefix
     return `assets/thumbnails/${folderMap[propertyId]}/thumb-${imageName}`;
@@ -44,19 +42,18 @@ function getThumbnailPath(propertyId, imageName) {
 
 // Create property card
 function createPropertyCard(property) {
+    const badgeText = property.status === 'Rented' && property.monthlyRent ? 
+        `Rented | ${formatCurrency(property.monthlyRent)}/mo` : property.status;
     const statusBadge = property.status ? 
-        `<span class="badge ${property.status === 'Rented' ? 'bg-success' : 'bg-warning text-dark'}">${property.status}</span>` : '';
+        `<span class="badge ${property.status === 'Rented' ? 'bg-success' : 'bg-warning text-dark'}">${badgeText}</span>` : '';
     
     const mainImage = property.images[0] || 'placeholder.jpg';
     const thumbnailPath = getThumbnailPath(property.id, mainImage);
     
     const monthlyIncome = property.status === 'Rented' && property.monthlyRent ? 
-        `<p class="mb-1"><strong>Monthly Income:</strong> ${formatCurrency(property.monthlyRent)}</p>` : '';
+        `<p class="mb-1"><strong>Monthly Income:</strong> ${formatCurrency(property.monthlyRent)} <span class="badge bg-success ms-2">Rented</span></p>` : '';
     
-    const pdfLink = property.pdf ? 
-        `<a href="assets/pdfs/${property.pdf}" target="_blank" class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation();">
-            <i class="fas fa-file-pdf"></i> PDF
-        </a>` : '';
+    const pdfLink = '';
 
     return `
         <div class="col-lg-4 col-md-6 mb-4 property-item" 
@@ -88,7 +85,6 @@ function createPropertyCard(property) {
                     
                     <div class="d-flex gap-2 mt-auto">
                         <a href="property.html?id=${property.id}" class="btn btn-primary btn-sm flex-fill" onclick="event.stopPropagation();">View Details</a>
-                        ${pdfLink}
                     </div>
                 </div>
             </div>
