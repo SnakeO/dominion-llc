@@ -79,10 +79,9 @@ const properties = [
         rentalTime: '3 years',
         notes: '',
         images: [
-            'front-exterior-with-yard.jpg',
+            'street-view-neighborhood.png',
             'front-exterior-with-porch.jpg',
-            'electrical-meter-utilities.jpg',
-            'street-view-neighborhood.png'
+            'electrical-meter-utilities.jpg'
         ],
         video: '2536-desoto-st-walkthrough.mp4',
         pdf: '2536-Desoto-St-Shreveport-LA-71103.pdf',

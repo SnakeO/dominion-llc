@@ -42,8 +42,9 @@ function getThumbnailPath(propertyId, imageName) {
         '525-sassafras-ave': '525-sassafras-ave-shreveport-la-71106',
         '529-sassafras-ave': '529-sassafras-ave-shreveport-la-71106'
     };
-    // Thumbnails have the same name as source images, just with thumb- prefix
-    return `assets/thumbnails/${folderMap[propertyId]}/thumb-${imageName}`;
+    // Thumbnails are always .jpg, even if source is .png
+    const thumbnailName = imageName.replace(/\.(jpg|png)$/i, '.jpg');
+    return `assets/thumbnails/${folderMap[propertyId]}/thumb-${thumbnailName}`;
 }
 
 // Load property details

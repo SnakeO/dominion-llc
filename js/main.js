@@ -36,8 +36,9 @@ function getThumbnailPath(propertyId, imageName) {
         '525-sassafras-ave': '525-sassafras-ave-shreveport-la-71106',
         '529-sassafras-ave': '529-sassafras-ave-shreveport-la-71106'
     };
-    // Thumbnails have the same name as source images, just with thumb- prefix
-    return `assets/thumbnails/${folderMap[propertyId]}/thumb-${imageName}`;
+    // Thumbnails are always .jpg, even if source is .png
+    const thumbnailName = imageName.replace(/\.(jpg|png)$/i, '.jpg');
+    return `assets/thumbnails/${folderMap[propertyId]}/thumb-${thumbnailName}`;
 }
 
 // Create property card
@@ -48,7 +49,7 @@ function createPropertyCard(property) {
         `<span class="badge ${property.status === 'Rented' ? 'bg-success' : 'bg-warning text-dark'}">${badgeText}</span>` : '';
     
     const mainImage = property.images[0] || 'placeholder.jpg';
-    const thumbnailPath = getThumbnailPath(property.id, mainImage);
+    const imagePath = getImagePath(property.id, mainImage);
     
     const monthlyIncome = property.status === 'Rented' && property.monthlyRent ? 
         `<p class="mb-1"><strong>Monthly Income:</strong> ${formatCurrency(property.monthlyRent)} <span class="badge bg-success ms-2">Rented</span></p>` : '';
@@ -62,7 +63,7 @@ function createPropertyCard(property) {
              data-price="${property.price || 0}">
             <div class="card h-100 shadow-sm property-card" onclick="window.location.href='property.html?id=${property.id}'" style="cursor: pointer;">
                 <div class="position-relative">
-                    <img src="${thumbnailPath}" class="card-img-top" alt="${property.address}" 
+                    <img src="${imagePath}" class="card-img-top" alt="${property.address}" 
                          style="height: 250px; object-fit: cover;" loading="lazy">
                     <div class="position-absolute top-0 end-0 p-2">
                         ${statusBadge}
