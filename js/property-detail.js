@@ -176,6 +176,21 @@ function loadPropertyDetails() {
     if (property.video) {
         document.getElementById('videoSection').style.display = 'block';
         document.getElementById('propertyVideo').src = `assets/videos/${property.video}`;
+        
+        // Add click handler for video poster
+        const videoPosterContainer = document.getElementById('videoPosterContainer');
+        videoPosterContainer.addEventListener('click', function() {
+            const video = document.getElementById('propertyVideo');
+            if (!this.classList.contains('playing')) {
+                this.classList.add('playing');
+                video.play();
+            }
+        });
+        
+        // Add event listener to show poster when video ends
+        document.getElementById('propertyVideo').addEventListener('ended', function() {
+            videoPosterContainer.classList.remove('playing');
+        });
     }
     
 }

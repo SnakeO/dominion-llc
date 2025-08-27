@@ -159,6 +159,75 @@ video {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Video Poster Container */
+.video-poster-container {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.video-poster-container.playing {
+    min-height: auto;
+}
+
+.video-poster-logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+}
+
+.video-play-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(13, 110, 253, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.video-play-button:hover {
+    transform: scale(1.1);
+    background: rgba(13, 110, 253, 1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.video-play-button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent white;
+    margin-left: 5px;
+}
+
+.video-poster-container video {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.video-poster-container.playing video {
+    display: block;
+}
+
+.video-poster-container.playing .video-poster-logo,
+.video-poster-container.playing .video-play-button {
+    display: none;
+}
+
 /* Loading Animation */
 .loading {
     display: inline-block;
