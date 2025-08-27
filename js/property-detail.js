@@ -80,7 +80,8 @@ function loadPropertyDetails() {
     document.getElementById('ac').textContent = property.ac || 'Not specified';
     
     // Financial details
-    if (property.monthlyRent) {
+    // Only show Current Rent for Rented properties
+    if (property.monthlyRent && property.status === 'Rented') {
         document.getElementById('monthlyRentInfo').innerHTML = 
             `<p class="mb-2"><strong>Current Rent:</strong> ${formatCurrency(property.monthlyRent)}</p>`;
     }
@@ -95,10 +96,16 @@ function loadPropertyDetails() {
             const suggestedRent = parseInt(property.marketRent.toString().replace(/[^0-9]/g, ''));
             if (currentRent < suggestedRent) {
                 document.getElementById('marketRentInfo').innerHTML += 
-                    `<div class="alert alert-info mb-0">
+                    `<div class="alert alert-info mb-0 mt-2">
                         <small><i class="fas fa-info-circle"></i> The current rent has been maintained below market rates as a benefit to our reliable, long-term tenant who has consistently paid on time and maintained the property well over their ${property.rentalTime} tenancy.</small>
                     </div>`;
             }
+        }
+        
+        // Add rental duration right after suggested rent (only for rented properties)
+        if (property.rentalTime && property.status === 'Rented') {
+            document.getElementById('marketRentInfo').innerHTML += 
+                `<p class="mb-2 mt-2"><strong>Current Tenant Rental Duration:</strong> ${property.rentalTime}</p>`;
         }
     }
     
@@ -110,11 +117,6 @@ function loadPropertyDetails() {
     if (property.parishTax) {
         document.getElementById('parishTaxInfo').innerHTML = 
             `<p class="mb-2"><strong>Parish Tax:</strong> ${formatCurrency(property.parishTax)}</p>`;
-    }
-    
-    if (property.rentalTime) {
-        document.getElementById('rentalTimeInfo').innerHTML = 
-            `<p class="mb-2"><strong>Rental Duration:</strong> ${property.rentalTime}</p>`;
     }
     
     if (property.notes) {
@@ -162,11 +164,7 @@ function loadPropertyDetails() {
             el: '.swiper-pagination',
             clickable: true,
         },
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+        loop: true
     });
     
     // Make swiper global for thumbnail clicks

@@ -20,13 +20,9 @@ const properties = [
             'living-room.jpg',
             'kitchen.jpg',
             'bathroom.jpg',
-            'bathroom-mirror.jpg',
-            'bedroom.jpg',
             'bedroom-corner.jpg',
             'bedroom-window.jpg',
             'bedroom-with-closet.jpg',
-            'front-porch.jpg',
-            'side-exterior.jpg',
             'rear-exterior.jpg'
         ],
         video: '2424-highland-ave-walkthrough.mp4',
@@ -51,23 +47,12 @@ const properties = [
         notes: 'Renovation opportunity',
         images: [
             'front-exterior.jpg',
-            'interior-bedroom-window.jpg',
             'kitchen-with-fireplace.jpg',
-            'interior-room-corner-window.jpg',
-            'living-room-with-ac-unit.jpg',
-            'bedroom-corner-window.jpg',
             'bathroom-with-toilet.jpg',
-            'shower-area-tiled-walls.jpg',
-            'kitchen-with-wood-cabinets.jpg',
-            'living-room-with-fireplace-angle2.jpg',
             'kitchen-cabinets-detail.jpg',
-            'bathroom-full-view.jpg',
             'bedroom-with-window-ac.jpg',
             'bedroom-different-angle.jpg',
             'bathroom-vanity-area.jpg',
-            'water-heater-utility-area.jpg',
-            'side-exterior-view.jpg',
-            'front-entrance-door.jpg',
             'side-exterior-with-steps.jpg',
             'backyard-view.jpg',
             'rear-exterior-view.jpg',
@@ -96,7 +81,6 @@ const properties = [
         images: [
             'front-exterior-with-yard.jpg',
             'front-exterior-with-porch.jpg',
-            'roof-and-gutters.jpg',
             'electrical-meter-utilities.jpg',
             'street-view-neighborhood.png'
         ],
@@ -121,16 +105,9 @@ const properties = [
         rentalTime: '',
         notes: 'Renovation opportunity',
         images: [
-            'front-exterior.jpg',
-            'living-room.jpg',
-            'living-room-window-view.jpg',
-            'bathroom.jpg',
-            'kitchen.jpg',
-            'side-exterior.jpg',
-            'back-exterior.jpg',
-            'driveway-exterior.jpg'
+            'front-exterior.jpg'
         ],
-        video: '250-e-68th-st-video.mp4',
+        video: null,
         pdf: null,
         avm: null
     },
@@ -151,17 +128,12 @@ const properties = [
         rentalTime: '8 years',
         notes: '',
         images: [
-            'front-exterior-street-view.jpg',
             'front-exterior-close.jpg',
             'kitchen.jpg',
             'bedroom-with-tv.jpg',
             'bathroom.jpg',
             'bedroom-with-bed.jpg',
-            'kitchen-view.jpg',
-            'backyard-with-car.jpg',
-            'front-exterior-with-car.jpg',
-            'side-exterior-view.jpg',
-            'back-exterior-view.jpg'
+            'kitchen-view.jpg'
         ],
         video: '3726-portland-ave-walkthrough.mp4',
         pdf: '3726-Portland-Ave-Shreveport-LA-71103.pdf',
@@ -184,18 +156,14 @@ const properties = [
         rentalTime: '',
         notes: 'Renovation opportunity',
         images: [
-            'street-view-exterior.jpg',
             'front-exterior.jpg',
             'living-room.jpg',
             'hallway-interior.jpg',
             'bedroom.jpg',
             'bathroom.jpg',
-            'bathroom-detailed.jpg',
-            'side-exterior-view.jpg',
-            'backyard-view.jpg',
-            'rear-exterior-view.jpg'
+            'bathroom-detailed.jpg'
         ],
-        video: '3730-portland-ave-walkthrough.mp4',
+        video: null,
         pdf: null,
         avm: null
     },
@@ -216,13 +184,11 @@ const properties = [
         rentalTime: '3 years',
         notes: '',
         images: [
+            'back-exterior-view.jpg',
             'front-exterior.jpg',
             'interior-bedroom.jpg',
             'side-exterior-view1.jpg',
-            'side-exterior-view2.jpg',
-            'front-exterior-with-porch.jpg',
-            'side-exterior-with-landscaping.jpg',
-            'back-exterior-view.jpg'
+            'side-exterior-view2.jpg'
         ],
         video: '525-sassafras-ave-walkthrough.mp4',
         pdf: null,
@@ -245,15 +211,13 @@ const properties = [
         rentalTime: '3 years',
         notes: '',
         images: [
+            'street-view-from-road.jpg',
             'front-exterior.jpg',
             'bedroom.jpg',
             'bathroom.jpg',
             'hallway.jpg',
             'laundry-utility-room.jpg',
-            'side-rear-exterior.jpg',
             'front-exterior-angle.jpg',
-            'aerial-roof-view.jpg',
-            'street-view-from-road.jpg',
             'side-exterior-view.jpg'
         ],
         video: '529-sassafras-ave-walkthrough.mp4',
