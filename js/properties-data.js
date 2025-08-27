@@ -44,7 +44,7 @@ const properties = [
         propertyTax: 81.73,
         parishTax: 400.76,
         rentalTime: '',
-        notes: 'Renovation opportunity',
+        notes: 'Investors Special! Renovation Opportunity!',
         images: [
             'front-exterior.jpg',
             'kitchen-with-fireplace.jpg',
@@ -102,7 +102,7 @@ const properties = [
         propertyTax: 43.74,
         parishTax: 214.46,
         rentalTime: '',
-        notes: 'Renovation opportunity',
+        notes: 'Investors Special! Renovation Opportunity!',
         images: [
             'front-exterior.jpg'
         ],
@@ -153,7 +153,7 @@ const properties = [
         propertyTax: 4.17,
         parishTax: 20.47,
         rentalTime: '',
-        notes: 'Renovation opportunity',
+        notes: 'Investors Special! Renovation Opportunity!',
         images: [
             'front-exterior.jpg',
             'living-room.jpg',

@@ -95,11 +95,24 @@ function createPropertyCard(property) {
 
 // Display properties
 function displayProperties(propertiesToShow = properties) {
+    // Sort properties: Rented first, then Vacant
+    const sortedProperties = [...propertiesToShow].sort((a, b) => {
+        // If both have same status or both have no status, maintain original order
+        if (a.status === b.status) return 0;
+        // Rented properties come first
+        if (a.status === 'Rented') return -1;
+        if (b.status === 'Rented') return 1;
+        // Then Vacant properties
+        if (a.status === 'Vacant') return -1;
+        if (b.status === 'Vacant') return 1;
+        return 0;
+    });
+    
     const grid = document.getElementById('propertiesGrid');
-    grid.innerHTML = propertiesToShow.map(property => createPropertyCard(property)).join('');
+    grid.innerHTML = sortedProperties.map(property => createPropertyCard(property)).join('');
 }
 
-// Filter and sort functionality
+// Filter and sort functionality  
 function filterAndSortProperties() {
     let filtered = [...properties];
     
