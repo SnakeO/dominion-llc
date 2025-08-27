@@ -152,9 +152,4 @@ function resetFilters() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     displayProperties();
-    
-    // Add event listeners for filters
-    document.getElementById('bedroomFilter').addEventListener('change', filterAndSortProperties);
-    document.getElementById('statusFilter').addEventListener('change', filterAndSortProperties);
-    document.getElementById('priceSort').addEventListener('change', filterAndSortProperties);
 });

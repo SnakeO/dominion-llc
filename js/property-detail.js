@@ -174,21 +174,34 @@ function loadPropertyDetails() {
     // Load video if available
     if (property.video) {
         document.getElementById('videoSection').style.display = 'block';
-        document.getElementById('propertyVideo').src = `assets/videos/${property.video}`;
+        const video = document.getElementById('propertyVideo');
+        video.src = `assets/videos/${property.video}`;
+        
+        // Force mute the video
+        video.muted = true;
+        video.volume = 0;
         
         // Add click handler for video poster
         const videoPosterContainer = document.getElementById('videoPosterContainer');
         videoPosterContainer.addEventListener('click', function() {
-            const video = document.getElementById('propertyVideo');
             if (!this.classList.contains('playing')) {
                 this.classList.add('playing');
+                video.muted = true; // Ensure muted when playing
                 video.play();
             }
         });
         
         // Add event listener to show poster when video ends
-        document.getElementById('propertyVideo').addEventListener('ended', function() {
+        video.addEventListener('ended', function() {
             videoPosterContainer.classList.remove('playing');
+        });
+        
+        // Ensure video stays muted if user tries to unmute
+        video.addEventListener('volumechange', function() {
+            if (!video.muted) {
+                video.muted = true;
+                video.volume = 0;
+            }
         });
     }
     
