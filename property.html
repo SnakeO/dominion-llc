@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - Dominion Investors LLC</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Contact Header -->
+    <div class="contact-header bg-dark text-white py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <a href="mailto:info@dominioninvestorsllc.com" class="text-white text-decoration-none me-3">
+                        <i class="fas fa-envelope"></i> info@dominioninvestorsllc.com
+                    </a>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="tel:318-588-6910" class="text-white text-decoration-none">
+                        <i class="fas fa-phone"></i> (318) 588-6910
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Dominion Investors LLC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">All Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Property Details -->
+    <section class="py-5">
+        <div class="container">
+            <div class="mb-3">
+                <a href="index.html" class="btn btn-link px-0"><i class="fas fa-arrow-left"></i> Back to Properties</a>
+            </div>
+            
+            <div class="row">
+                <!-- Image Gallery Column -->
+                <div class="col-lg-7">
+                    <div class="swiper propertySwiper">
+                        <div class="swiper-wrapper" id="propertyImages">
+                            <!-- Images will be inserted here -->
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    
+                    <!-- Thumbnail Gallery -->
+                    <div class="mt-4">
+                        <div class="row g-2" id="thumbnailGallery">
+                            <!-- Thumbnails will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Video Section -->
+                    <div id="videoSection" class="mt-4" style="display: none;">
+                        <h5 class="mb-3">Property Video Tour</h5>
+                        <video id="propertyVideo" controls class="w-100" style="max-height: 500px;">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Property Info Column -->
+                <div class="col-lg-5">
+                    <div class="sticky-lg-top" style="top: 100px;">
+                        <h1 class="h3 mb-2" id="propertyAddress"></h1>
+                        <h2 class="h5 text-muted mb-4" id="propertyCity"></h2>
+                        
+                        <div class="mb-4">
+                            <h2 class="text-primary mb-1" id="propertyPrice"></h2>
+                            <div id="statusBadge" class="mb-3"></div>
+                        </div>
+                        
+                        <!-- Property Features -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Property Features</h5>
+                                <div class="row">
+                                    <div class="col-6 mb-2">
+                                        <i class="fas fa-bed text-primary"></i> 
+                                        <span id="bedrooms"></span> Bedrooms
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <i class="fas fa-bath text-primary"></i> 
+                                        <span id="bathrooms"></span> Bathrooms
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <i class="fas fa-home text-primary"></i> 
+                                        <span id="sqft"></span> sqft
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <i class="fas fa-snowflake text-primary"></i> 
+                                        <span id="ac"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Financial Details -->
+                        <div class="card mb-4" id="financialDetails">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Financial Details</h5>
+                                <div id="monthlyRentInfo"></div>
+                                <div id="marketRentInfo"></div>
+                                <div id="propertyTaxInfo"></div>
+                                <div id="parishTaxInfo"></div>
+                                <div id="rentalTimeInfo"></div>
+                                <div id="notesInfo"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Documents -->
+                        <div class="card mb-4" id="documentsSection" style="display: none;">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Documents</h5>
+                                <a id="pdfLink" href="#" target="_blank" class="btn btn-outline-primary">
+                                    <i class="fas fa-file-pdf"></i> View Property PDF
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact CTA -->
+                        <div class="card bg-primary text-white">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Interested in this property?</h5>
+                                <p class="mb-3">Contact us today for more information</p>
+                                <a href="mailto:info@dominioninvestorsllc.com" class="btn btn-light mb-2 d-block">
+                                    <i class="fas fa-envelope"></i> info@dominioninvestorsllc.com
+                                </a>
+                                <a href="tel:318-588-6910" class="btn btn-light d-block">
+                                    <i class="fas fa-phone"></i> (318) 588-6910
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Dominion Investors LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery (required for Lightbox2) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/properties-data.js"></script>
+    <script src="js/property-detail.js"></script>
+    
+    <!-- Configure Lightbox -->
+    <script>
+        lightbox.option({
+            'fadeDuration': 0,
+            'imageFadeDuration': 0,
+            'resizeDuration': 0,
+            'wrapAround': true,
+            'albumLabel': 'Image %1 of %2',
+            'disableScrolling': true
+        });
+    </script>
+</body>
+</html>
